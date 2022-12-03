@@ -1,0 +1,27 @@
+<!-- register node -->
+<script type="text/javascript">
+    RED.nodes.registerType('rain-delay',{
+        category: 'irrigation',
+        color: '#32A620',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon:"font-awesome/fa-umbrella", //hand-paper-o
+        label: function() {
+            return this.name||"rain-delay";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="rain-delay">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="rain-delay">
+    <p>Sets a SIP rain delay in hours</p>
+</script>

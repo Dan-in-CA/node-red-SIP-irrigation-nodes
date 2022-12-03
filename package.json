@@ -1,0 +1,16 @@
+{
+  "name": "red-contrib-sip-irrigation",
+  "version": "1.0.0",
+  "description": "A set of nodes to work with SIP irrigation platform",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dan-in-CA",
+  "license": "MIT",
+  "node-red" : {
+    "nodes": {
+        "rain-delay": "src/nodes/rain-delay.js"
+    }
+   }  
+}
