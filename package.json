@@ -1,7 +1,7 @@
 {
   "name": "red-contrib-sip-irrigation",
   "version": "1.0.0",
-  "description": "A set of nodes to work with SIP irrigation platform",
+  "description": "A set of nodes to work with SIP irrigation control software",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

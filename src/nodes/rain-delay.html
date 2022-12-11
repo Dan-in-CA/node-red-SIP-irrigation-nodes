@@ -1,27 +1,35 @@
-<!-- register node -->
+
 <script type="text/javascript">
-    RED.nodes.registerType('rain-delay',{
-        category: 'irrigation',
+    RED.nodes.registerType('sip-rain-delay', {
+        category: 'SIP irrigation',
         color: '#32A620',
         defaults: {
-            name: {value:""}
+            name: {value:""},
+    		hours: {value:""}
         },
         inputs:1,
         outputs:1,
-        icon:"font-awesome/fa-umbrella", //hand-paper-o
+        icon:"font-awesome/fa-umbrella",
+        paletteLabel:"rain delay",
         label: function() {
-            return this.name||"rain-delay";
+            return this.name||"rain delay";
         }
     });
 </script>
 
-<script type="text/html" data-template-name="rain-delay">
+<script type="text/html" data-template-name="sip-rain-delay">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
+
+    <div class="form-row">
+        <label for="node-input-hours"><i class="fa fa-clock-o"></i> Delay hours</label>
+        <input type="number" id="node-input-hours" placeholder="0">
+    </div>
+
 </script>
 
-<script type="text/html" data-help-name="rain-delay">
-    <p>Sets a SIP rain delay in hours</p>
+<script type="text/html" data-help-name="sip-rain-delay">
+    <p>Sets SIP rain delay (hours)</p>
 </script>
