@@ -1,0 +1,49 @@
+<script type="text/javascript">
+    RED.nodes.registerType('sip-run-now',{
+        category: 'SIP irrigation',
+        color: '#32A620',
+        defaults: {
+            name: {value:""},
+            program: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon:"time-watch-whte.svg",
+        paletteLabel:"run now",
+        label: function() {
+            return this.name||"run now";
+        }    
+    })
+</script>
+
+<script type="text/html" data-template-name="sip-run-now">
+    <div class="form-row">
+        <label for="node-input-run-now"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-run-now" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-program"><i class="fa fa-tag"></i> program</label>
+        <input type="text" id="node-input-program" placeholder="program">
+    </div>
+
+
+    <div class="form-tips"><b>Tip: </b> Program can be a program number, or name in quotes (case sensitive).</div>
+</script>
+
+<script type="text/markdown" data-help-name="sip-run-now">
+Run a SIP irrigation program.
+
+### Inputs
+
+
+### Outputs
+The output message is sent to SIP thrugh a **http request** node configured with **POST** as Method and the SIP node-red **URl**.  
+For example, if node-red and SIP are running on the same raspberry Pi, the URL would be **localhost/jsin**. 
+### Details
+
+### References
+ - [GitHub](https://github.com/Dan-in-CA/node-red-contrib-sip-irrigation) - the SIP irrgation nodes repository
+ - [SIP GitHub](https://github.com/Dan-in-CA/sip) - the SIP software repository
+</script>
+
