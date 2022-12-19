@@ -35,12 +35,19 @@
 Run a SIP irrigation program.
 
 ### Inputs
-
+The **program** field can be a **program number**, or a **program name** in quotes (case sensitive).  
+Input from another node can be a **JSON** payload that has a property of **"runNow"**.  
+- If the **run now** property has the value **true**, the program from the **program field** will be run.  
+- If the **run now** property has the value of a **program number** or a **program name** the program indicated by the input will be run.  
+for example {"runNow": (program)}  
+where (program) is a program number or a case sensitive program name in quotes.  
+- A dashboard button may be used to provide input.  
+for example:  
+{"runNow": 1} will run rogram number 1.  
 
 ### Outputs
-The output message is sent to SIP thrugh a **http request** node configured with **POST** as Method and the SIP node-red **URl**.  
-For example, if node-red and SIP are running on the same raspberry Pi, the URL would be **localhost/jsin**. 
-### Details
+The output message is sent to SIP thrugh a **http request** node configured with the **POST** Method and the SIP **URL** followed by **/jsin**.    
+For example: if node-red and SIP are running on the same raspberry Pi, the URL would be **localhost/jsin**. 
 
 ### References
  - [GitHub](https://github.com/Dan-in-CA/node-red-contrib-sip-irrigation) - the SIP irrgation nodes repository

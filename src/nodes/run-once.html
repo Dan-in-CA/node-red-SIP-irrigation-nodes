@@ -50,12 +50,12 @@ One or more stations to be run with times in seconds in the following format:
 For example [1, 30] to run station 1 for 30 seconds.  
 Multiple stations can be scheduled with each seperated by a comma:  
 [1, 30], [2, 30] to run stations 1 and 2 for 30 seconds each.  
-Stations can be either a station **number** or a **station name**.  
+Station can be a station **number** or a **station name**.  
 If using station names, be sure to enter the case sensitive name in quotes. for example:  
 **["My station", 30]**
 ### Outputs
-The output message is sent to SIP thrugh a **http request** node configured with **POST** as Method and the SIP node-red **URl**.  
-For example, if node-red and SIP are running on the same raspberry Pi, the URL would be **localhost/jsin**.  
+The output message is sent to SIP thrugh a **http request** node configured with **POST** as Method and the SIP **URL** followed by */jsin**.  
+For example: if node-red and SIP are running on the same raspberry Pi, the URL would be **localhost/jsin**.  
 
 ### References
  - [GitHub](https://github.com/Dan-in-CA/node-red-contrib-sip-irrigation) - the SIP irrigation nodes repository
