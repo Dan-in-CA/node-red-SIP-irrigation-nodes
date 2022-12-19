@@ -1,0 +1,44 @@
+<script type="text/javascript">
+    RED.nodes.registerType('sip-stop-all',{
+        category: 'SIP irrigation',
+        color: '#32A620',
+        defaults: {
+            name: {value:""},
+        },
+        inputs:1,
+        outputs:1,
+        icon:"stop-hand-white.svg",
+        paletteLabel:"stop stations",
+        label: function() {
+            return this.name||"stop stations";
+        }    
+    });
+</script>
+
+<script type="text/html" data-template-name="sip-stop-all">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+
+    <div class="form-tips"><b>Tip:</b> Any input will send a <b>Stop all stations</b> message to SIP.</div>
+</script>
+
+<script type="text/markdown" data-help-name="sip-stop-all">
+Stop all running SIP stations.
+
+### Inputs
+Any input to this node will send a **stop-all** msessage.
+All rinning stations will be stopped untill a new program is started.
+
+### Outputs
+The output message is sent to SIP thrugh a **http request** node configured with the **POST** Method and the SIP **URL** followed by **/jsin**.    
+For example: if node-red and SIP are running on the same raspberry Pi, the URL would be **localhost/jsin**.
+
+### References
+
+ - [GitHub](https://github.com/<repo name>) - the SIP Node-RED nodes github repository
+ - [SIP GitHub](https://github.com/Dan-in-CA/sip) - the SIP software github repository
+</script>
+
