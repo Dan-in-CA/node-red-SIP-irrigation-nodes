@@ -1,0 +1,84 @@
+<script type="text/javascript">
+    RED.nodes.registerType('sip-station-cntl',{
+        category: 'SIP irrigation',
+        color: '#32A620',
+        defaults: {
+            name: {value:""},
+            station: {value:""},
+            state: {value:""},
+            preempt: {value:""},         
+        },
+        inputs:1,
+        outputs:1,
+        icon:"switch-v-white.svg",
+        paletteLabel:"station switch",
+        label: function() {
+            return this.name||"station switch";
+        },
+        oneditprepare: function() {
+        	$("#node-input-state").typedInput({
+        	    types: [
+        	        {
+        	            value: "On",
+        	            options: [
+        	                { value: 1, label: "On"},
+        	                { value: 0, label: "Off"},
+        	            ]
+        	        }
+        	    ]
+        	})  	
+        }
+        	
+    });
+</script>
+
+<script type="text/html" data-template-name="sip-station-cntl">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-station"><i class="fa fa-list-ol"></i> Station(s)</label>
+        <input type="text" id="node-input-station" placeholder="1 or 1, 2, etc.">
+    </div>
+
+	<div class="form-row">
+		<label for="node-input-state"><i class="fa fa-arrows-v"></i> Set to</label>	 	
+		<input type="text" id="node-input-state">
+	</div>
+
+
+    <div class="form-row">
+        <label for="node-input-preempt"><i class="fa fa-gavel"></i> Preempt</label>
+        <input type="checkbox" id="node-input-preempt">
+    </div>
+
+    <div class="form-tips">
+		<p><b>Tip:</b> Enter one or more comma seperated station numbers</p>
+        <p>Selecting the Preempt box allows control of stations being run by a SIP programs.</p>  
+	</div>
+
+</script>
+
+<script type="text/markdown" data-help-name="sip-station-cntl">
+Switch one or more SIP stations on or off.
+
+### Inputs
+The **Station(s)** field should be one or more station numbers separated by a comma.
+The **Set to** field selects if the station(s) will be switched on or off.  
+Input from another node must be a **JSON** payload that has any combination of one or more of the following properties:  
+- **"sn"** with a value that is an array of one or more station numbers. e.g. **"sn":[1, 2, 3]**. 
+- **"set"** with a value of **1** or **0** to  switch the station(s) on (1) or off (0). e.g. **"set":1**   
+- **"preempt"** with a value of **0** (default) or **1** to allow control of stations run by a SIP program    
+- A dashboard button or text input may be used to provide input.
+
+### Outputs
+The output message is sent to SIP thrugh a **http request** node configured with the **POST** Method and the SIP **URL** followed by **/jsin**.    
+For example: if node-red and SIP are running on the same raspberry Pi, the URL would be **localhost/jsin**. 
+
+### References
+ - [GitHub](https://github.com/<repo name>) - the SIP Node-RED nodes github repository
+ - [SIP GitHub](https://github.com/Dan-in-CA/sip) - the SIP software github repository
+</script>
+

@@ -4,12 +4,7 @@ module.exports = function(RED) {
        const node = this;     
        node.on('input', function(msg) {    
            var roObj = JSON.parse('{"ro":[' + msg.payload + ']}');
-           if (!config.preempt) {
-               roObj.preempt = 0;
-           }
-           else {
-               roObj.preempt = 1;
-           }
+           roObj.preempt = config.preempt | 0
            msg.payload = roObj;
            node.send(msg);
        })
