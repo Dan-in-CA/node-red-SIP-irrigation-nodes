@@ -1,0 +1,73 @@
+<script type="text/javascript">
+    RED.nodes.registerType('sip-prog-cntl',{
+        category: 'SIP irrigation',
+        color: '#32A620',
+        defaults: {
+            name: {value:""},
+            program: {value:""},
+            state: {value:""},
+            end: {value:""},            
+        },
+        inputs:1,
+        outputs:1,
+        icon:"switch-on-off-white.svg",
+        paletteLabel:"program off",
+        label: function() {
+            return this.name||"program off";
+        },
+        oneditprepare: function() {
+        	$("#node-input-state").typedInput({
+        	    types: [
+        	        {
+        	            value:  "off",
+        	            options: [
+        	            	{ value: "off", label: "Off"},
+        	            	{ value: "on", label: "On"},
+        	                
+        	            ]
+        	        }
+        	    ]
+        	})  	
+        }  
+    });
+</script>
+
+<script type="text/html" data-template-name="sip-prog-cntl">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-program"><i class="fa fa-calendar"></i> Program(s)</label>
+        <input type="text" id="node-input-program" placeholder="number, name or all">
+    </div>
+
+	<div class="form-row">
+		<label for="node-input-state"><i class="fa fa-arrows-v"></i> Set to</label>	 	
+		<input type="text" id="node-input-state">
+	</div>
+
+    <div class="form-row">
+        <label for="node-input-end"><i class="fa fa-hourglass-end"></i> End now</label>
+        <input type="checkbox" id="node-input-end">
+    </div>
+
+    <div class="form-tips"><b>Tip:</b> Enter program number or name to disable or enable.</div>
+</script>
+
+<script type="text/markdown" data-help-name="sip-prog-cntl">
+Disable or enable SIP programs.
+
+### Inputs
+
+### Outputs
+
+### Details
+
+### References
+
+ - [GitHub](https://github.com/<repo name>) - the SIP Node-RED nodes github repository
+ - [SIP GitHub](https://github.com/Dan-in-CA/sip) - the SIP software github repository
+</script>
+

@@ -4,9 +4,9 @@ module.exports = function(RED) {
        const node = this;      
            node.on('input', function(msg) {
                let swObj = {};
-               let numLst = config.station.split(/[ ,]+/).map(Number);
-               swObj.sn = numLst;
-               swObj.set = parseInt(config.state);
+               let snLst = config.station.split(/[,]{1}[\s]?/);
+               swObj.sn = snLst;
+               config.state == "on" ? swObj.set = 1 : swObj.set = 0;
                swObj.preempt = config.preempt | 0;               
                if (typeof(msg.payload) === "object") {
                    if ("sn" in msg.payload) swObj.sn = msg.payload.sn;

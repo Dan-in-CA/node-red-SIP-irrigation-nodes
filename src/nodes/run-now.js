@@ -10,7 +10,7 @@ module.exports = function(RED) {
                else var runObj = JSON.parse('{"run": "' + msg.payload.runNow + '"}');
            }                
            else {
-               var runObj = "Error invalid input"  //JSON.parse('{"run":' + config.program + '}');
+               var runObj = "Error invalid input"
            }        
            msg.payload = runObj;
            node.send(msg);

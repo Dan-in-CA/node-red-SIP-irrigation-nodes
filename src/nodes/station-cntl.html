@@ -19,10 +19,10 @@
         	$("#node-input-state").typedInput({
         	    types: [
         	        {
-        	            value: "On",
+        	            value: "on",
         	            options: [
-        	                { value: 1, label: "On"},
-        	                { value: 0, label: "Off"},
+        	                { value: "on", label: "On"},
+        	                { value: "off", label: "Off"},
         	            ]
         	        }
         	    ]
@@ -47,7 +47,6 @@
 		<label for="node-input-state"><i class="fa fa-arrows-v"></i> Set to</label>	 	
 		<input type="text" id="node-input-state">
 	</div>
-
 
     <div class="form-row">
         <label for="node-input-preempt"><i class="fa fa-gavel"></i> Preempt</label>
