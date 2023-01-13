@@ -53,15 +53,32 @@
         <input type="checkbox" id="node-input-end">
     </div>
 
-    <div class="form-tips"><b>Tip:</b> Enter program number or name to disable or enable.</div>
+    <div class="form-tips"><b>Tip:</b> Enter program number, case sensitive name or "all" to disable or enable.</div>
 </script>
 
 <script type="text/markdown" data-help-name="sip-prog-cntl">
 Disable or enable SIP programs.
 
 ### Inputs
+In the **Program(s)** field enter:  
+- One ore more program numbers or program names (case sensitive) separted by a comma. You can mix numbers and names.   
+- The word "all" without quotes to disable or enable all programs.  
+
+In the **Set to** field select **Off** to disable programs or **On** to enable programs. 
+ 
+The **End now** box controls if a running program will be stopped. 
+
+A message input that is not a javascript object payload such as a timestamp will use this nodes settings.
+   
+Input from another node can be a **JSON** payload that has any combination of one or more of the following properties:  
+- **"prog"** with a value that is an array of one or more program numbers. e.g. **"prog":[1, 2, 3]**. 
+- **"set"** with a value of **1** or **0** to  switch the program(s) on (1) or off (0). e.g. **"set":1**   
+- **"end"** with a value of **0** (default) or **1** to stop a running SIP program.    
+- A dashboard button or text input may be used to provide input.
 
 ### Outputs
+The output message is sent to SIP thrugh a **http request** node configured with the **POST** Method and the SIP **URL** followed by **/jsin**.    
+For example: if node-red and SIP are running on the same raspberry Pi, the URL would be **localhost/jsin**.
 
 ### Details
 

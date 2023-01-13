@@ -24,7 +24,7 @@
     </div>
 
     <div class="form-row">
-        <label for="node-input-hours"><i class="fa fa-clock-o"></i> Delayhours</label>
+        <label for="node-input-hours"><i class="fa fa-clock-o"></i> Delay hours</label>
         <input type="number" id="node-input-hours" placeholder="0">
     </div>
 
@@ -39,29 +39,28 @@
 Set or clear SIP rain delay (hours).
 
 ### Inputs
-
 - **Delay hours:** The number of hours for SIP's rain delay to be active.  
-- If a message is recieved on the node's input with a payload containing an object with an **rd_state** property of **1** and no **val** property, a delay will be set with the hours from the **Delay hours** feild. 
-- If a message is recieved with a payload containing an object with an **rd_state** property of **1** and a **val** property, the value set on the node's **Delay hours** field will be overridden by the **val** property.  
-- If a message is recieved with a payload containing an object with an **rd_state** property of **0**, any current rain delay will be cancelled.
+- If a message is recieved on the node's input with a payload containing an object with an **rainDelay** property of **1** and no **val** property, a delay will be set with the hours from the **Delay hours** feild. 
+- If a message is recieved with a payload containing an object with an **rainDelay** property of **1** and a **val** property, the value set on the node's **Delay hours** field will be overridden by the **val** property.  
+- If a message is recieved with a payload containing an object with an **rainDelay** property of **0**, any current rain delay will be cancelled.
 - A dashboard switch may be used for input.  
   - The **Pass through msg** check box should be **unchecked**
   - The **Indicator** field should be set to "Switch icon shows sate of the **input**"
-  - The **On payload** must be JSON in the form   **{"rd_state":"1"}**  
-  - The **Off payload** must be JSON in the form   **{"rd_state":"0"}**  
+  - The **On payload** must be JSON in the form   **{"rainDelay":"1"}**  
+  - The **Off payload** must be JSON in the form   **{"rainDelay":"0"}**  
 The number of hours in the node's **Delay hours** field will be used.
 
 ### Outputs
-
+The output message is sent to SIP thrugh a **http request** node configured with the **POST** Method and the SIP **URL** followed by **/jsin**.    
+For example: if node-red and SIP are running on the same raspberry Pi, the URL would be **localhost/jsin**.
 Standard output
-: payload (string) : **'{"rd_state": <0 or 1>, "val": \<number\>}'**.
+: payload (string) : **'{"rainDelay": <0 or 1>, "val": \<number\>}'**.
 
 ### Details
-
 `msg.payload` is sent to the SIP node-red extension through an **HTTP request** node set to **POST** and **\<SIP's url\>/jsin**.  For example, if SIP and Node-RED are running on the same Raspberry Pi the URL would be **localhost/jsin**.  
-- If **"rd_state"** is **0**, any current rain delay will be cancelled.  
-- If **"rd_state"** is **1**, a new delay will be started with the **"val"** number of hours.  
-- If **"val"** is **0**, rain delay will be cancelled even if **"rd_state"** is **1**.
+- If **"rainDelay"** is **0**, any current rain delay will be cancelled.  
+- If **"rainDelay"** is **1**, a new delay will be started with the **"val"** number of hours.  
+- If **"val"** is **0**, rain delay will be cancelled even if **"rainDelay"** is **1**.
 
 
 ### References

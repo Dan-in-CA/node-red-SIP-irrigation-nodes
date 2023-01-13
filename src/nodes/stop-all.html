@@ -7,7 +7,7 @@
         },
         inputs:1,
         outputs:1,
-        icon:"stop-hand-white.svg",
+        icon:"hand-stopping-gesture-white.svg",
         paletteLabel:"stop stations",
         label: function() {
             return this.name||"stop stations";
@@ -29,8 +29,8 @@
 Stop all running SIP stations.
 
 ### Inputs
-Any input to this node will send a **stop-all** msessage.
-All rinning stations will be stopped untill a new program is started.
+Any input to this node with an object containing a **"stopStations"** property will send a **stopAll** msessage.
+All running stations will be stopped untill a new program is started.
 
 ### Outputs
 The output message is sent to SIP thrugh a **http request** node configured with the **POST** Method and the SIP **URL** followed by **/jsin**.    

@@ -1,0 +1,56 @@
+<!-- Link: -->
+<!-- https://nodered.org/docs/creating-nodes/node-html#defining-a-node -->
+
+<script type="text/javascript">
+    RED.nodes.registerType('sip-water-level',{
+        category: 'SIP irrigation',
+        color: '#32A620',
+        defaults: {
+            name: {value:""},
+            level: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon:"percent-white.svg",
+        paletteLabel:"water level",
+        label: function() {
+            return this.name||"water level";
+        }    
+    });
+</script>
+
+<script type="text/html" data-template-name="sip-water-level">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-level"><i class="fa fa-percent"></i> Water level</label>
+        <input type="text" id="node-input-level" placeholder="Number">
+    </div>
+
+
+    <div class="form-tips"><b>Tip:</b> Enter a percentage of irrigation time for all stations.</div>
+</script>
+
+<script type="text/markdown" data-help-name="sip-water-level">
+Adjust global watering time by percent.
+
+### Inputs
+In the **Water level** field enter a percent value to be applied to the run time of all stations.
+An empty water level field will set SIP's water level to 100% (no adjustment).
+Input from another node can be a **msg.payload** or a **msg.sipControl** object containing a **waterLevel** property.
+- If the **value** of the water level property is a "number" SIP's irrigation time for all stations will be set to that percent. 
+- If the **value** property is a **string** or **null** SIP's irrigation time for all stations will be set to the value from the water level node. 
+
+### Outputs
+The output message is sent to SIP thrugh a **http request** node configured with the **POST** Method and the SIP **URL** followed by **/jsin**.    
+For example: if node-red and SIP are running on the same raspberry Pi, the URL would be **localhost/jsin**.
+
+### References
+
+ - [GitHub](https://github.com/<repo name>) - the SIP Node-RED nodes github repository
+ - [SIP GitHub](https://github.com/Dan-in-CA/sip) - the SIP software github repository
+</script>
+
