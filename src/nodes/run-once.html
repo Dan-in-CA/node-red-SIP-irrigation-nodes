@@ -25,7 +25,7 @@
     </div>
 
     <div class="form-row">
-        <label for="node-input-runOnce"><i class="fa fa-hand-o-up"></i>Run once</label>
+        <label for="node-input-runOnce"><i class="fa fa-hand-o-up"></i> Run once</label>
         <input type="text" id="node-input-runOnce" placeholder="">
     </div>
 
@@ -51,10 +51,13 @@ For example [1, 30] to run station 1 for 30 seconds.
 Multiple stations can be scheduled with each seperated by a comma:  
 [1, 30], [2, 30] to run stations 1 and 2 for 30 seconds each.  
 Station can be a station **number** or a **station name**.  
-If using station names, be sure to enter the case sensitive name in quotes. for example:  
-**["My station", 30]**
+If using station names, be sure to enter the case sensitive name in quotes. for example:    
+**["My station", 30]**  
+Input from another node can be a message with a **payload** or **sipControl** property that contains an object with a "runOnce" property
+ and a value that is an array of sub-arrays separated by commas e.g.
+{ "runOnce": [ [1, 30], [2, 30] ] }
 ### Outputs
-The output message is sent to SIP thrugh a **http request** node configured with **POST** as Method and the SIP **URL** followed by */jsin**.  
+The output message is sent to SIP thrugh a **http request** node configured with **POST** as Method and the SIP **URL** followed by **/jsin**.  
 For example: if node-red and SIP are running on the same raspberry Pi, the URL would be **localhost/jsin**.  
 
 ### References
