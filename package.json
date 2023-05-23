@@ -1,5 +1,5 @@
 {
-  "name": "red-contrib-sip-irrigation",
+  "name": "@sip-irrigation/node-red-nodes",
   "version": "1.0.0",
   "description": "A set of nodes to work with SIP irrigation control software",
   "main": "src/index.js",
@@ -8,9 +8,17 @@
   },
   "author": "Dan-in-CA",
   "license": "MIT",
+  "keywords": ["node-red","sip-irrigation","sprinkler control","irrigation"],
   "node-red" : {
+  	"version": ">=2.0.0",
     "nodes": {
-        "rain-delay": "src/nodes/rain-delay.js"
+        "program-cntl": "src/nodes/program-cntl.js",
+        "rain-delay": "src/nodes/rain-delay.js",
+        "run-now": "src/nodes/run-now.js",
+        "run-once": "src/nodes/run-once.js",
+        "station-cntl": "src/nodes/station-cntl.js",
+        "stop-all": "src/nodes/stop-all.js",
+        "water-level": "src/nodes/water-level.js"
     }
    }  
 }

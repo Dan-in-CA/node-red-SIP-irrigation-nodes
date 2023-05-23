@@ -64,14 +64,14 @@
 Switch one or more SIP stations on or off.
 
 ### Inputs
-The **Station(s)** field should be one or more station numbers separated by a comma.
+The **Station(s)** field should be one or more station numbers or quoted names separated by a comma.
 The **Set to** field selects if the station(s) will be switched on or off.  
 Input from another node can be in the **payload** property or in a **sipControl** property.
-It must be **JSON** that has any combination of one or more of the following properties:  
-- **"stationList"** with a value that is an array of one or more station numbers. e.g. **"stationList":[1, 2, 3]**. 
+It must be a **JSON object** that has any combination of one or more of the following properties:  
+- **"stationList"** with a value that is an array of one or more station numbers or quoted names. e.g. **"stationList":[1, "S02", 3]**. 
 - **"set"** with a value of **1** or **0** to  switch the station(s) on (1) or off (0). e.g. **"set":1**   
 - **"preempt"** with a value of **0** (default) or **1** to allow control of stations run by a SIP program    
-- A dashboard button or text input may be used to provide input.
+- A dashboard switch or text input may be used to provide input.
 
 ### Outputs
 The output message is sent to SIP thrugh a **http request** node configured with the **POST** Method and the SIP **URL** followed by **/jsin**.    

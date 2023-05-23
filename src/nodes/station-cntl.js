@@ -23,7 +23,7 @@ module.exports = function(RED) {
                }            
                if (typeof(msg.payload) === "object") {
                    if ("stationList" in msg.payload) {
-                       snObj.sn = msg.payload.sn;
+                       snObj.sn = msg.payload.stationList;
                    }
                    if ("set" in msg.payload) {
                        snObj.set = msg.payload.set;
@@ -31,6 +31,10 @@ module.exports = function(RED) {
                    if ("preempt" in msg.payload) {
                        snObj.preempt = msg.payload.preempt;
                    }
+               } else if (typeof(msg.payload) === "string") {
+                 stn = []
+                 stn[0] = msg.payload;
+                 snObj.sn = stn;            
                }
            msg.payload = snObj;
            node.send(msg);
