@@ -1,0 +1,137 @@
+[
+    {
+        "id": "5433e6f8221fab44",
+        "type": "inject",
+        "z": "14814e3cd14145ed",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"runOnce\": [ [1, 30], [\"S04\", 30] ]}",
+        "payloadType": "json",
+        "x": 90,
+        "y": 740,
+        "wires": [
+            [
+                "d0538e41f14fc33a"
+            ]
+        ]
+    },
+    {
+        "id": "daa93741d9c49da1",
+        "type": "http request",
+        "z": "14814e3cd14145ed",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "localhost/jsin",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 410,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ff2f029b7ebe3a52",
+        "type": "debug",
+        "z": "14814e3cd14145ed",
+        "name": "run once",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "4a6b18690bafafba",
+        "type": "ui_text_input",
+        "z": "14814e3cd14145ed",
+        "name": "",
+        "label": "SIP run once",
+        "tooltip": "Hit Enter to send",
+        "group": "e56d1a1e5b33aebf",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": false,
+        "className": "",
+        "topicType": "msg",
+        "x": 90,
+        "y": 780,
+        "wires": [
+            [
+                "d0538e41f14fc33a"
+            ]
+        ]
+    },
+    {
+        "id": "d0538e41f14fc33a",
+        "type": "sip-run-once",
+        "z": "14814e3cd14145ed",
+        "name": "",
+        "runOnce": "[3, 30], [4, 30]",
+        "preempt": true,
+        "x": 240,
+        "y": 740,
+        "wires": [
+            [
+                "ff2f029b7ebe3a52",
+                "daa93741d9c49da1"
+            ]
+        ]
+    },
+    {
+        "id": "c632a2018b2ef540",
+        "type": "comment",
+        "z": "14814e3cd14145ed",
+        "name": "Run once example",
+        "info": "Run once test flow",
+        "x": 110,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "e56d1a1e5b33aebf",
+        "type": "ui_group",
+        "name": "SIP",
+        "tab": "21df1e48f66f4bac",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "21df1e48f66f4bac",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

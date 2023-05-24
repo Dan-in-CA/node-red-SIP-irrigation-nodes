@@ -1,0 +1,60 @@
+[
+    {
+        "id": "6b5d6bddabfe903e",
+        "type": "http response",
+        "z": "14814e3cd14145ed",
+        "name": "",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 260,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "193478c0833ee798",
+        "type": "http in",
+        "z": "14814e3cd14145ed",
+        "name": "/node-red in",
+        "url": "/node-red",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 1460,
+        "wires": [
+            [
+                "6b5d6bddabfe903e",
+                "674c0d7a04f5e2e7"
+            ]
+        ]
+    },
+    {
+        "id": "674c0d7a04f5e2e7",
+        "type": "debug",
+        "z": "14814e3cd14145ed",
+        "name": "From SiP",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 260,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "1d5dde8a2ffd5b42",
+        "type": "comment",
+        "z": "14814e3cd14145ed",
+        "name": "From SIP example",
+        "info": "",
+        "x": 110,
+        "y": 1400,
+        "wires": []
+    }
+]

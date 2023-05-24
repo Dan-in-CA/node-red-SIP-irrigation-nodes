@@ -1,0 +1,93 @@
+[
+    {
+        "id": "9cfe0ed7a2b1bec9",
+        "type": "http request",
+        "z": "14814e3cd14145ed",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "localhost/jsin",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 450,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d00922b7fc81b1ae",
+        "type": "debug",
+        "z": "14814e3cd14145ed",
+        "name": "test payload",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "9034a7fa621d4f01",
+        "type": "inject",
+        "z": "14814e3cd14145ed",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 100,
+        "wires": [
+            [
+                "4c5a0be48a96d335"
+            ]
+        ]
+    },
+    {
+        "id": "4c5a0be48a96d335",
+        "type": "sip-prog-cntl",
+        "z": "14814e3cd14145ed",
+        "name": "",
+        "program": "1",
+        "state": "off",
+        "end": false,
+        "x": 270,
+        "y": 100,
+        "wires": [
+            [
+                "9cfe0ed7a2b1bec9",
+                "d00922b7fc81b1ae"
+            ]
+        ]
+    },
+    {
+        "id": "cb402d1d6104ab53",
+        "type": "comment",
+        "z": "14814e3cd14145ed",
+        "name": "Program off test flow",
+        "info": "",
+        "x": 110,
+        "y": 40,
+        "wires": []
+    }
+]

@@ -1,0 +1,118 @@
+[
+    {
+        "id": "6e783346c14f9873",
+        "type": "sip-station-cntl",
+        "z": "14814e3cd14145ed",
+        "name": "",
+        "station": "5",
+        "state": "off",
+        "preempt": false,
+        "x": 320,
+        "y": 1120,
+        "wires": [
+            [
+                "6d83c372f25a8ff0",
+                "ad679f7a38259f4e"
+            ]
+        ]
+    },
+    {
+        "id": "acdb8cd469a0661e",
+        "type": "inject",
+        "z": "14814e3cd14145ed",
+        "name": "station 5 on",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"stationList\": [\"S05\"], \"set\": 1}",
+        "payloadType": "json",
+        "x": 110,
+        "y": 1100,
+        "wires": [
+            [
+                "6e783346c14f9873"
+            ]
+        ]
+    },
+    {
+        "id": "6d83c372f25a8ff0",
+        "type": "http request",
+        "z": "14814e3cd14145ed",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "body",
+        "url": "localhost/jsin",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 530,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ad679f7a38259f4e",
+        "type": "debug",
+        "z": "14814e3cd14145ed",
+        "name": "station switch",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "b754beeae2be703c",
+        "type": "comment",
+        "z": "14814e3cd14145ed",
+        "name": "Station switch example",
+        "info": "Click the button at the left of the inject node to send a message to controll SIP.",
+        "x": 120,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "c9e8c14eb93617db",
+        "type": "inject",
+        "z": "14814e3cd14145ed",
+        "name": "Station 5 off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"stationList\": [\"S05\"], \"set\": 0}",
+        "payloadType": "json",
+        "x": 110,
+        "y": 1140,
+        "wires": [
+            [
+                "6e783346c14f9873"
+            ]
+        ]
+    }
+]

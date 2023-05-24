@@ -1,0 +1,118 @@
+[
+    {
+        "id": "77935da58d1e1f62",
+        "type": "http request",
+        "z": "14814e3cd14145ed",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "query",
+        "url": "localhost/jsin",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 490,
+        "y": 1300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "94642d244fe1c0cb",
+        "type": "inject",
+        "z": "14814e3cd14145ed",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"waterLevel\":50}",
+        "payloadType": "json",
+        "x": 120,
+        "y": 1280,
+        "wires": [
+            [
+                "aa6d3a649fb454b5"
+            ]
+        ],
+        "info": "### Use SIP get to read SIP settings and status \r\nThis example flow can be used as a handy tool for observing SIP's settings and status information while the software is running.  \r\nThere are 2 groups of data that can be read from SIP.  \r\n**\"sd\"** values are from SIP's Settings Dictionary. \r\n**\"gv\"** values are global variables that hold status information.  \r\nThe **[gv_reference](https://github.com/Dan-in-CA/SIP/blob/P3-only/gv_reference.txt)** file in the SIP folder lists the sd and gv variables.\r\n\r\n### Reading SIP sd values:  \r\nUse the JSON option and a JavaScript object with the following format.  \r\n**{\"sd\":\"wl\"}**  \r\nThe **\"sd\"** property name selects values from SIP's **S**ettings **D**ictionary.  \r\nThe **\"wl\"** property value, shown in the example, selects the \"water level\" setting.\r\n\r\n### Reading SIP gv values:  \r\n**{\"gv\": \"cputemp\"}**  \r\nThe **\"gv\"** property name selects values from SIP's gv group of status information.  \r\nThe **\"cputemp\"** property value, shown in the example, will return the temperature from the Raspberry Pi's internal CPU temperature sensor.\r\n\r\n"
+    },
+    {
+        "id": "aa6d3a649fb454b5",
+        "type": "sip-water-level",
+        "z": "14814e3cd14145ed",
+        "name": "",
+        "level": "",
+        "x": 310,
+        "y": 1300,
+        "wires": [
+            [
+                "77935da58d1e1f62",
+                "2c4fe54ae4929cb4"
+            ]
+        ]
+    },
+    {
+        "id": "2c4fe54ae4929cb4",
+        "type": "debug",
+        "z": "14814e3cd14145ed",
+        "name": "% water level",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "de2b1cbdd8ac513a",
+        "type": "comment",
+        "z": "14814e3cd14145ed",
+        "name": "Water level example",
+        "info": "",
+        "x": 110,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "30e55f2cca122a8d",
+        "type": "inject",
+        "z": "14814e3cd14145ed",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"waterLevel\":\"\"}",
+        "payloadType": "json",
+        "x": 120,
+        "y": 1320,
+        "wires": [
+            [
+                "aa6d3a649fb454b5"
+            ]
+        ],
+        "info": "### Use SIP get to read SIP settings and status \r\nThis example flow can be used as a handy tool for observing SIP's settings and status information while the software is running.  \r\nThere are 2 groups of data that can be read from SIP.  \r\n**\"sd\"** values are from SIP's Settings Dictionary. \r\n**\"gv\"** values are global variables that hold status information.  \r\nThe **[gv_reference](https://github.com/Dan-in-CA/SIP/blob/P3-only/gv_reference.txt)** file in the SIP folder lists the sd and gv variables.\r\n\r\n### Reading SIP sd values:  \r\nUse the JSON option and a JavaScript object with the following format.  \r\n**{\"sd\":\"wl\"}**  \r\nThe **\"sd\"** property name selects values from SIP's **S**ettings **D**ictionary.  \r\nThe **\"wl\"** property value, shown in the example, selects the \"water level\" setting.\r\n\r\n### Reading SIP gv values:  \r\n**{\"gv\": \"cputemp\"}**  \r\nThe **\"gv\"** property name selects values from SIP's gv group of status information.  \r\nThe **\"cputemp\"** property value, shown in the example, will return the temperature from the Raspberry Pi's internal CPU temperature sensor.\r\n\r\n"
+    }
+]
