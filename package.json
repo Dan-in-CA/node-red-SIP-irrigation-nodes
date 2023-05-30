@@ -1,5 +1,5 @@
 {
-  "name": "@sip-irrigation/node-red-SIP-irrigation-nodes",
+  "name": "@sip-irrigation/node-red-sip-irrigation-nodes",
   "version": "1.0.0",
   "description": "A collection of nodes that work with SIP irrigation control software",
   "scripts": {
@@ -7,7 +7,7 @@
   },
   "author": "Dan-in-CA",
   "license": "MIT",
-  "keywords": ["node-red","sip irrigation","sprinkler control","irrigation, sprinkler"],
+  "keywords": ["node-red","sip irrigation","sprinkler control","irrigation", "sprinkler"],
   "bugs": {"url": "https://github.com/Dan-in-CA/node-red-SIP-irrigation-nodes/issues"},
   "engines": {
     "node": ">=12"

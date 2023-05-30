@@ -40,9 +40,9 @@ Set or clear SIP rain delay (hours).
 
 ### Inputs
 - **Delay hours:** The number of hours for SIP's rain delay to be active.  
-- If a message is recieved on the node's input with a payload containing an object with an **rainDelay** property of **1** and no **val** property, a delay will be set with the hours from the **Delay hours** feild. 
-- If a message is recieved with a payload containing an object with an **rainDelay** property of **1** and a **val** property, the value set on the node's **Delay hours** field will be overridden by the **val** property.  
-- If a message is recieved with a payload containing an object with an **rainDelay** property of **0**, any current rain delay will be cancelled.
+- If a message is recieved on the node's input with a payload containing an object with a **rainDelay** property of **1** and no **val** property, a delay will be set with the hours from the **Delay hours** feild. 
+- If a message is recieved with a payload containing an object with a **rainDelay** property of **1** and a **val** property, the value set on the node's **Delay hours** field will be overridden by the **val** property.  
+- If a message is recieved with a payload containing an object with a **rainDelay** property of **0**, any current rain delay will be cancelled.
 - A dashboard switch may be used for input.  
   - The **Pass through msg** check box should be **unchecked**
   - The **Indicator** field should be set to "Switch icon shows sate of the **input**"
