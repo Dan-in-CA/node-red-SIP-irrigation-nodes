@@ -1,0 +1,221 @@
+[
+    {
+        "id": "378b2335913f1db0",
+        "type": "http request",
+        "z": "14814e3cd14145ed",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "localhost/jsin",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 470,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c247e3a2b9ffabbc",
+        "type": "inject",
+        "z": "14814e3cd14145ed",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"rainDelay\":36}",
+        "payloadType": "json",
+        "x": 120,
+        "y": 320,
+        "wires": [
+            [
+                "795c2f69f06a0755"
+            ]
+        ]
+    },
+    {
+        "id": "62f090730b9447d3",
+        "type": "ui_switch",
+        "z": "14814e3cd14145ed",
+        "name": "",
+        "label": "Rain delay",
+        "tooltip": "",
+        "group": "e56d1a1e5b33aebf",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 110,
+        "y": 420,
+        "wires": [
+            [
+                "33dfd345eb5a7871",
+                "795c2f69f06a0755"
+            ]
+        ]
+    },
+    {
+        "id": "f1989b7a70b0c774",
+        "type": "http in",
+        "z": "14814e3cd14145ed",
+        "name": "/node-red in",
+        "url": "/node-red",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 260,
+        "wires": [
+            [
+                "abd56582b0f4834c",
+                "152cc9ce8ce3f437",
+                "795c2f69f06a0755"
+            ]
+        ]
+    },
+    {
+        "id": "152cc9ce8ce3f437",
+        "type": "debug",
+        "z": "14814e3cd14145ed",
+        "name": "SIP rainDelay",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 280,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "abd56582b0f4834c",
+        "type": "http response",
+        "z": "14814e3cd14145ed",
+        "name": "",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 260,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "33dfd345eb5a7871",
+        "type": "debug",
+        "z": "14814e3cd14145ed",
+        "name": "Switch output",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 300,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "401ea6dc52e319da",
+        "type": "comment",
+        "z": "14814e3cd14145ed",
+        "name": "Rain delay example",
+        "info": "",
+        "x": 110,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "38ce75faf075a587",
+        "type": "inject",
+        "z": "14814e3cd14145ed",
+        "name": "clear delay",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"rainDelay\":0}",
+        "payloadType": "json",
+        "x": 100,
+        "y": 360,
+        "wires": [
+            [
+                "795c2f69f06a0755"
+            ]
+        ]
+    },
+    {
+        "id": "795c2f69f06a0755",
+        "type": "sip-rain-delay",
+        "z": "14814e3cd14145ed",
+        "name": "",
+        "hours": "24",
+        "x": 300,
+        "y": 320,
+        "wires": [
+            [
+                "378b2335913f1db0"
+            ],
+            [
+                "62f090730b9447d3"
+            ]
+        ]
+    },
+    {
+        "id": "e56d1a1e5b33aebf",
+        "type": "ui_group",
+        "name": "SIP",
+        "tab": "21df1e48f66f4bac",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "21df1e48f66f4bac",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

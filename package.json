@@ -7,25 +7,38 @@
   },
   "author": "Dan-in-CA",
   "license": "MIT",
-  "keywords": ["node-red","sip irrigation","sprinkler control","irrigation", "sprinkler"],
-  "bugs": {"url": "https://github.com/Dan-in-CA/node-red-SIP-irrigation-nodes/issues"},
+  "keywords": [
+    "node-red",
+    "sip irrigation",
+    "sprinkler control",
+    "irrigation",
+    "sprinkler"
+  ],
+  "bugs": {
+    "url": "https://github.com/Dan-in-CA/node-red-SIP-irrigation-nodes/issues"
+  },
   "engines": {
     "node": ">=12"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Dan-in-CA/node-red-SIP-irrigation-nodes"
+    "url": "git+https://github.com/Dan-in-CA/node-red-SIP-irrigation-nodes.git"
   },
-  "node-red" : {
-  	"version": ">=2.2.0",
+  "node-red": {
+    "version": ">=2.2.0",
     "nodes": {
-        "program-cntl": "src/nodes/program-cntl.js",
-        "rain-delay": "src/nodes/rain-delay.js",
-        "run-now": "src/nodes/run-now.js",
-        "run-once": "src/nodes/run-once.js",
-        "station-cntl": "src/nodes/station-cntl.js",
-        "stop-all": "src/nodes/stop-all.js",
-        "water-level": "src/nodes/water-level.js"
-    }        
+      "program-cntl": "src/nodes/program-cntl.js",
+      "rain-delay": "src/nodes/rain-delay.js",
+      "run-now": "src/nodes/run-now.js",
+      "run-once": "src/nodes/run-once.js",
+      "station-cntl": "src/nodes/station-cntl.js",
+      "stop-all": "src/nodes/stop-all.js",
+      "water-level": "src/nodes/water-level.js"
+    }
+  },
+  "homepage": "https://github.com/Dan-in-CA/node-red-SIP-irrigation-nodes#readme",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
   }
 }
