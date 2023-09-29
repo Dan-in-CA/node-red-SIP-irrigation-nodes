@@ -18,7 +18,7 @@
         "z": "046e2a372ce4d76b",
         "name": "/node-red in",
         "url": "/node-red",
-        "method": "get",
+        "method": "post",
         "upload": false,
         "swaggerDoc": "",
         "x": 90,
