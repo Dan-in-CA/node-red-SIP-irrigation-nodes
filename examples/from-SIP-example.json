@@ -1,60 +1,60 @@
 [
     {
-        "id": "6b5d6bddabfe903e",
+        "id": "06eeaca84a1982a1",
         "type": "http response",
-        "z": "14814e3cd14145ed",
+        "z": "046e2a372ce4d76b",
         "name": "",
         "statusCode": "200",
         "headers": {
             "content-type": "application/json"
         },
         "x": 260,
-        "y": 1420,
+        "y": 800,
         "wires": []
     },
     {
-        "id": "193478c0833ee798",
+        "id": "7053d60bc6f93d89",
         "type": "http in",
-        "z": "14814e3cd14145ed",
+        "z": "046e2a372ce4d76b",
         "name": "/node-red in",
         "url": "/node-red",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
         "x": 90,
-        "y": 1460,
+        "y": 840,
         "wires": [
             [
-                "6b5d6bddabfe903e",
-                "674c0d7a04f5e2e7"
+                "06eeaca84a1982a1",
+                "6486340d2b1e8eea"
             ]
         ]
     },
     {
-        "id": "674c0d7a04f5e2e7",
+        "id": "6486340d2b1e8eea",
         "type": "debug",
-        "z": "14814e3cd14145ed",
+        "z": "046e2a372ce4d76b",
         "name": "From SiP",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
         "x": 260,
-        "y": 1460,
+        "y": 840,
         "wires": []
     },
     {
-        "id": "1d5dde8a2ffd5b42",
+        "id": "7bafb1521f01d2bc",
         "type": "comment",
-        "z": "14814e3cd14145ed",
-        "name": "From SIP example",
+        "z": "046e2a372ce4d76b",
+        "name": "From SIP",
         "info": "",
-        "x": 110,
-        "y": 1400,
+        "x": 80,
+        "y": 780,
         "wires": []
     }
 ]
